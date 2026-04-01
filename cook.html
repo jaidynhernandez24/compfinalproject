@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cook.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
     <script src="cook.js"></script>
     <title>Cooking Frenzy</title>
 </head>
 <body>
     <h1>Cooking Frenzy </h1>
-    <img src="fries.png" width="100px">
-    <img src="hamburger.webp" width="100px" class="food hamburger">
-    <img src="ketchup.png" width="100px">
-    <img src="milkshake.avif" width="100px">
-    <img src="mustard.avif" width="100px">
-    <img src="soda.png" width="100px">
+    <img src="fries.png" width="250px" class="food fries">
+    <img src="hamburger.webp" width="250px" class="food hamburger">
+    <img src="ketchup.png" width="155px" class="food ketchup">
+    <img src="milkshake.avif" width="400px" class="food milkshake">
+    <img src="mustard.avif" width="130px" class="food mustard">
+    <img src="soda.png" width="250px" class="food soda">
+
+<div id="receipt"></div>
+<button onclick="handleFoodClick('burger')">Burger</button>
+<button onclick="handleFoodClick('fries')">Fries</button>
+<button onclick="handleFoodClick('soda')">Drink</button>
+<button onclick="handleFoodClick('milkshake')">Milkshake</button>
+<button onclick="handleFoodClick('mustard')">Mustard</button>
+<button onclick="handleFoodClick('Ketchup')">Ketchup</button>
+<script src="game.js"></script>
+
 </body>
 </html>

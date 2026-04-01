@@ -10,12 +10,42 @@ body {
     background-position: center;
 }
 
+h1 {
+    font-family: Irish Grover, sans-serif;
+    font-size: 90px;
+}
+
 .food {
     position: absolute; 
 }
 
 .hamburger {
-    bottom:250px; 
+    bottom:200px; 
     right: 600px; 
+}
+
+.fries {
+    bottom: 20px;
+    right: 600px;
+}
+
+.milkshake {
+    bottom: 100px;
+    right: 350px;
+}
+
+.soda {
+    bottom: 100px;
+    left: 450px;
+}
+
+.ketchup {
+    bottom: 100px;
+    left: 100px;
+}
+
+.mustard {
+    bottom: 100px;
+    left: 200px;
 }
 
