@@ -36,6 +36,24 @@ h1 {
     }
 }
 
+/*TEXT BOX AND ALIGNMENT*/
+.box {
+    width: 100%;
+    background-color: black;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.centered {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-top: 5px;
+}
 /*FOOD BUTTONS*/
 
 .food {
