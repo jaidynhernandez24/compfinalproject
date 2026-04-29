@@ -1,4 +1,4 @@
-html, body{
+html, body {
     height: 100%;
     margin: 0;
 }
@@ -10,97 +10,94 @@ body {
     background-position: center;
 }
 
-h1 {
-    font-family: Irish Grover, sans-serif;
-    font-size: 100px;
-    color: red;
-    animation: flicker 3s linear infinite;
-}
-@keyframes flicker{
-    0%, 19.9%, 22%, 62.9%, 64%, 70%, 100% {
-        opacity: 0.99;
-        text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.4),
-                     1px -1px 0 rgba(255, 255, 255, 0.4),
-                     -1px 1px 0 rgba(255, 255, 255, 0.4),
-                     1px 1px 0 rgba(255, 255, 255, 0.4),
-                     0 2px 8px, 
-                     0 0 2px,
-                     0 0 5px #fff,
-                     0 0 15px #fff,
-                     0 0 2px #fff,
-                     0 2px 3px #000;
-    }
-    20%, 21.9%, 63%, 65%, 69.9%{
-        opacity: 0.4;
-        text-shadow: none;
-    }
-}
+/* TITLE */
+h1 { font-family: Irish Grover, sans-serif; 
+    font-size: 100px; 
+    margin: 0;
+    } 
 
-/*TEXT BOX AND ALIGNMENT*/
 .box {
     width: 100%;
     background-color: black;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-.centered {
-    text-align: center;
-}
-
-.left {
+    padding: 20px;
     text-align: left;
-    padding-left: 90px;
-    padding-right: 90px;
-    padding-top: 5px;
+    padding-left: 150px;
 }
-/*FOOD BUTTONS*/
 
+.title-text {
+    color: red;
+    animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker{ 
+    0%, 19.9%, 22%, 62.9%, 64%, 70%, 100% { 
+        opacity: 0.99; 
+        text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.4), 
+        1px -1px 0 rgba(255, 255, 255, 0.4), 
+        -1px 1px 0 rgba(255, 255, 255, 0.4), 
+        1px 1px 0 rgba(255, 255, 255, 0.4), 
+        0 2px 8px, 
+        0 0 2px, 
+        0 0 5px #fff, 
+        0 0 15px #fff, 
+        0 0 2px #fff, 
+        0 2px 3px #000; } 
+    20%, 21.9%, 63%, 65%, 69.9%{ 
+        opacity: 0.4; 
+        text-shadow: none; 
+    } }
+/* FOOD */
 .food {
-    position: absolute; 
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.hamburger {
+.food:hover {
+    transform: scale(1.1);
+}
+
+/* POSITIONS */
+.hamburger { 
     bottom:200px; 
-    right: 600px; 
-}
+    right:600px; 
+    width: 250px;}
 
-.fries {
-    bottom: 20px;
-    right: 600px;
-}
+.fries { 
+    bottom:20px; 
+    right:600px; 
+    width: 250px}
 
-.milkshake {
-    bottom: 100px;
-    right: 350px;
-}
+.milkshake { 
+    bottom:100px; 
+    right:350px;
+    width: 400px; }
 
-.soda {
-    bottom: 100px;
-    left: 450px;
-}
+.soda { 
+    bottom:100px; 
+    left:450px; 
+    width: 250px;}
 
-.ketchup {
-    bottom: 60px;
-    left: 180px;
-}
+.ketchup { 
+    bottom:60px; 
+    left:180px;
+    width:155px; }
 
-.mustard {
-    bottom: 65px;
-    left: 350px;
-}
+.mustard { 
+    bottom:65px; 
+    left:350px; 
+    width: 130px;}
 
-/*RECEIPT MECHANICS, TEXT INSIDE RECEIPT*/
-
-.receipt {
-    width: 100%;
-    display: block;
-}
+/* RECEIPT */
 .receipt-container {
     position: absolute;
     width: 300px;
-    top: 0;
-    left: 1050px;
+    top: 20px;
+    right: 20px;
+}
+
+.receipt {
+    width: 100%;
 }
 
 .receipt-content {
@@ -108,15 +105,32 @@ h1 {
     top: 20px;
     left: 20px;
     right: 20px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-align: center;
+    text-align: left;
     font-family: monospace;
+    color: black;
+    font-size: 20px;
+}
+
+#centered {
+    text-align: center;
 }
 
 #receipt p {
     margin: 5px 0;
+}
+
+/* TIMER */
+#timer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Score */
+#score{
+    font-size: 30px;
 }

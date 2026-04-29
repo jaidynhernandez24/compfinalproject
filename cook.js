@@ -1,60 +1,52 @@
-let pq = initPriorityQueue("min"); // smaller number = higher priority
 let currentOrder = [];
+let time = 30;
+let timerInterval;
+let score = 0;
 
-// Generate order using priority queue
+// START GAME
+document.addEventListener("DOMContentLoaded", () => {
+    generateOrder();
+    startTimer();
+    updateScore();
+});
+
+// GENERATE RANDOM ORDER
 function generateOrder() {
-    pq = initPriorityQueue("min");
     currentOrder = [];
 
     let foods = ["burger", "fries", "soda", "milkshake", "mustard", "ketchup"];
     let length = Math.floor(Math.random() * 4) + 2;
 
     for (let i = 0; i < length; i++) {
-        let food = foods[Math.floor(Math.random() * foods.length)];
-
-        pq.enqueue(food, i); // priority = order position
+        let randomFood = foods[Math.floor(Math.random() * foods.length)];
+        currentOrder.push(randomFood);
     }
 
-    rebuildQueueFromPQ();
     updateReceipt();
 }
 
-// Convert PQ → array (so UI works easily)
-function rebuildQueueFromPQ() {
-    currentOrder = [];
-
-    let size = pq.size();
-    for (let i = 0; i < size; i++) {
-        let item = pq.dequeue();
-        if (item) currentOrder.push(item);
-    }
-
-    // rebuild PQ again so we don't lose it
-    currentOrder.forEach((item, index) => {
-        pq.enqueue(item, index);
-    });
-}
-
-// Handle clicks
+// HANDLE CLICK
 function handleFoodClick(food) {
-    let next = pq.peek();
-
-    if (food === next) {
-        pq.dequeue();
+    if (food === currentOrder[0]) {
+        currentOrder.shift(); // remove first item
         console.log("Correct");
     } else {
-        console.log("Wrong");
+        alert("Wrong order! Follow the list.");
+        return;
     }
 
-    rebuildQueueFromPQ();
     updateReceipt();
 
-    if (pq.size() === 0) {
+    // NEW ORDER
+    if (currentOrder.length === 0) {
+        score++;
+        updateScore();
+        time = 30;
         setTimeout(generateOrder, 1000);
     }
 }
 
-// Update UI
+// UPDATE RECEIPT UI
 function updateReceipt() {
     let receipt = document.getElementById("receipt");
 
@@ -63,5 +55,29 @@ function updateReceipt() {
         .join("");
 }
 
-// Start game
-window.onload = generateOrder;
+// TIMER
+function startTimer() {
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+        time--;
+        document.getElementById("timer").textContent = "Time: " + time;
+
+        if (time <= 0) {
+            clearInterval(timerInterval);
+            alert("Time's up! Score reset.");
+
+            score = 0;
+            time = 30;
+
+            updateScore();
+            generateOrder();
+            startTimer();
+        }
+    }, 1000);
+}
+
+//Score
+function updateScore() {
+    document.getElementById("score").textContent = "Score: " + score;
+}
